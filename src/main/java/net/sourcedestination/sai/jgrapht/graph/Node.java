@@ -17,7 +17,7 @@
 
  */
 
-package sai.graph.jgrapht;
+package net.sourcedestination.sai.jgrapht.graph;
 
 import java.util.HashSet;
 import java.util.Set;

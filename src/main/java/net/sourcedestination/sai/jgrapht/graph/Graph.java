@@ -16,10 +16,10 @@
     along with jmorwick-javalib.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-package sai.graph.jgrapht;
+package net.sourcedestination.sai.jgrapht.graph;
 
-import info.kendall_morwick.funcles.Funcles;
-import info.kendall_morwick.funcles.T2;
+import net.sourcedestination.funcles.Funcles;
+import net.sourcedestination.funcles.tuple.Tuple2;
 
 import java.util.HashMap;
 import java.util.HashSet;

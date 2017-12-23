@@ -16,7 +16,7 @@
     along with jmorwick-javalib.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-package sai.graph.jgrapht;
+package net.sourcedestination.sai.jgrapht.graph;
 
 import java.util.Collection;
 import java.util.Set;

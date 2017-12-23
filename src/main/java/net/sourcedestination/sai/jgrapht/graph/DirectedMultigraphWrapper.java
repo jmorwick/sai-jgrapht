@@ -1,4 +1,4 @@
-package sai.graph.jgrapht;
+package net.sourcedestination.sai.jgrapht.graph;
 
 import java.util.Collection;
 import java.util.Set;

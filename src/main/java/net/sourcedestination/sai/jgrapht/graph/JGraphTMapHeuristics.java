@@ -1,4 +1,4 @@
-package sai.graph.jgrapht;
+package net.sourcedestination.sai.jgrapht.graph;
 
 import info.kendall_morwick.funcles.T2;
 import info.kendall_morwick.funcles.T3;
