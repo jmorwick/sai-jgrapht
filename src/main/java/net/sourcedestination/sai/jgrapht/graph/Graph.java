@@ -29,14 +29,6 @@ import java.util.Set;
 
 import org.jgrapht.graph.DirectedMultigraph;
 
-import com.google.common.base.Function;
-import com.google.common.base.Predicates;
-import com.google.common.collect.Collections2;
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
-import com.google.common.collect.Sets;
-
-import db.mysql.MySQLDBInterface;
 
 /**
  * @version 2.0.0
@@ -134,17 +126,6 @@ public class Graph
     }
     
 
-    @Override
-    public Edge addEdge(Node n1, Node n2) {
-        return addEdge(n1, n2, new Feature[0]);
-    }
-
-
-    public Edge addEdge(Node n1, Node n2, Feature ... features) {
-        Edge e = new Edge(this, db, features);
-        addEdge(n1, n2, e);
-        return e;
-    }
 
     /** creates a new graph instance in the database for this graph, and sets
      * the ID to that of the newly created instance.  This is perforemd
@@ -196,55 +177,6 @@ public class Graph
         }
     }
 
-    public Set<Feature> getFeatures() {
-        return Sets.newHashSet(features);
-    }
-    
-/** sets a temporary ID for the specified Node.  This ID is not saved to the
- * database and setting this ID will not alter this Object's relationship
- * with a stored graph in the database.
- * 
- * @param n
- * @param id
- */
-    public void setAlternateID(Node n, String id) {
-        alternateIDs.put(id, n);
-        n.setAlternateID(id);
-    }
-
-    public int getID() { return DBID; }
-
-    public Node getNode(int id) {
-        for(Node n : vertexSet()) {
-            if(n.getID() == id) return n;
-        }
-        
-        return null;
-    }
-
-    public Node getNode(String id) {
-        return alternateIDs.get(id);
-    }
-
-    /** associate feature t with this graph.  t must not conflict with existing
-     * features.  If t, or an equivalent feature, is already associated, no action is taken.
-     * Otherwise, the feature is added and the ID associating this object with
-     * a stored graph is cleared.
-     * @param t
-     */
-    public void addFeature(Feature t) {
-        int size = features.size();
-        features.add(t);
-        
-        for(Feature f : features) {
-        	
-        	
-            if(!f.canAccompany(Collections2.filter(features, Predicates.equalTo(f)))) {
-                features.remove(t);
-                throw new IllegalArgumentException("Added feature cannot accompany existing features");
-            }
-        }
-    }
 
     /** all nodes with an edge leading from n to them
      * 
